@@ -1,0 +1,150 @@
+/* ===== Cores (edite aqui para mudar o visual todo) ===== */
+:root {
+  --fundo: #f8f6f4;
+  --papel: #ffffff;
+  --texto: #232a3b;
+  --texto-suave: #5d6577;
+  --azul: #22305a;
+  --sakura: #f4dfe1;
+  --vermelho: #c23b34;
+  --borda: #e6e0dc;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Zen Maru Gothic", system-ui, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+/* ===== Topo ===== */
+.topo {
+  background: var(--sakura);
+  text-align: center;
+  padding: 56px 20px 48px;
+  border-bottom: 4px solid var(--vermelho);
+}
+.topo h1 {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  color: var(--azul);
+  line-height: 1.15;
+}
+.topo p {
+  margin: 10px 0 22px;
+  color: var(--texto-suave);
+}
+
+/* ===== Seção ===== */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 56px;
+}
+.titulo-secao {
+  font-size: 1.5rem;
+  color: var(--azul);
+  margin-bottom: 24px;
+}
+
+/* ===== Grade de produtos ===== */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Área da foto: o fundo aparece enquanto você não colocou a imagem */
+.card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  background: var(--sakura);
+  color: var(--texto-suave);
+}
+
+.card-corpo {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.card-corpo h3 {
+  font-size: 1.2rem;
+  color: var(--azul);
+}
+.card-corpo p {
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+  margin-top: 6px;
+}
+.card-corpo .preco {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--texto);
+  margin-top: 12px;
+}
+
+/* ===== Botões ===== */
+.acoes {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+.botao {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 2px solid var(--azul);
+  color: var(--azul);
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+.acoes .botao:first-child { flex: 1; }
+.botao:hover { background: var(--azul); color: #fff; }
+
+.botao-cheio {
+  background: var(--vermelho);
+  border-color: var(--vermelho);
+  color: #fff;
+}
+.botao-cheio:hover { background: #a52f29; border-color: #a52f29; }
+
+.botao:focus-visible,
+.rodape a:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 3px;
+}
+
+/* ===== Rodapé ===== */
+.rodape {
+  text-align: center;
+  padding: 28px 20px;
+  border-top: 1px solid var(--borda);
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+.rodape a { color: var(--azul); font-weight: 700; }
+
+/* ===== Celular ===== */
+@media (max-width: 480px) {
+  .topo { padding: 44px 16px 36px; }
+  .grade { grid-template-columns: 1fr; }
+}
