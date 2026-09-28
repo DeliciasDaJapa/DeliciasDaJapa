@@ -1,0 +1,237 @@
+/* ===== Cores (tiradas da logo) ===== */
+:root {
+  --fundo: #fbf7f5;
+  --papel: #ffffff;
+  --texto: #331107;
+  --texto-suave: #6b5148;
+  --azul: #331107;      /* marrom chocolate */
+  --sakura: #fbe4ec;    /* rosa bem claro */
+  --vermelho: #f58fb1;  /* rosa da logo */
+  --borda: #ecdfe0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Zen Maru Gothic", system-ui, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+/* ===== Topo (mesmo marrom da logo, ela se funde ao fundo) ===== */
+.topo {
+  background: #331107;
+  text-align: center;
+  padding: 40px 20px 44px;
+  border-bottom: 4px solid var(--vermelho);
+}
+.logo-titulo { line-height: 0; }
+.logo {
+  width: clamp(150px, 42vw, 210px);
+  height: auto;
+  border-radius: 50%;
+}
+.logo-pequena { width: 84px; }
+.topo p {
+  margin: 14px 0 22px;
+  color: #f3dbe2;
+}
+
+/* ===== Seção ===== */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 56px;
+}
+.titulo-secao {
+  font-size: 1.5rem;
+  color: var(--azul);
+  margin-bottom: 24px;
+}
+
+/* ===== Grade de produtos ===== */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Área da foto: o fundo aparece enquanto você não colocou a imagem */
+.card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  background: var(--sakura);
+  color: var(--texto-suave);
+}
+
+.card-corpo {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.card-corpo h3 {
+  font-size: 1.2rem;
+  color: var(--azul);
+}
+.card-corpo p {
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+  margin-top: 6px;
+}
+.card-corpo .preco {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--texto);
+  margin-top: 12px;
+}
+
+/* ===== Botões ===== */
+.acoes {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+.botao {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 2px solid var(--azul);
+  color: var(--azul);
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+.acoes .botao:first-child { flex: 1; }
+.botao:hover { background: var(--azul); color: #fff; }
+
+.botao-cheio {
+  background: var(--vermelho);
+  border-color: var(--vermelho);
+  color: var(--azul);
+}
+.botao-cheio:hover { background: #ee739c; border-color: #ee739c; color: var(--azul); }
+
+.botao:focus-visible,
+.rodape a:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 3px;
+}
+
+/* ===== Rodapé ===== */
+.rodape {
+  text-align: center;
+  padding: 28px 20px;
+  border-top: 1px solid var(--borda);
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+.rodape a { color: var(--azul); font-weight: 700; }
+
+/* ===== Celular ===== */
+@media (max-width: 480px) {
+  .topo { padding: 44px 16px 36px; }
+  .grade { grid-template-columns: 1fr; }
+}
+
+/* ===== Página de ingredientes ===== */
+.topo-pequeno { padding: 20px 20px 22px; }
+.voltar {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--vermelho);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.voltar:focus-visible { outline: 3px solid var(--vermelho); outline-offset: 3px; }
+
+.detalhe {
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.detalhe > img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+  background: var(--sakura);
+}
+.detalhe-texto h2 { font-size: 1.8rem; color: var(--azul); }
+.detalhe-texto .preco { font-weight: 700; font-size: 1.2rem; margin: 4px 0 20px; }
+.detalhe-texto h3 { font-size: 1.05rem; color: var(--azul); margin: 20px 0 8px; }
+
+.ingredientes { list-style: none; }
+.ingredientes li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--borda);
+}
+.aviso { color: var(--texto-suave); font-size: 0.95rem; }
+.detalhe-texto .acoes { margin-top: 24px; }
+
+@media (max-width: 700px) {
+  .detalhe { grid-template-columns: 1fr; }
+}
+
+.topo .botao:focus-visible { outline-color: #fff; }
+@media (max-width: 480px) { .topo { padding: 32px 16px 36px; } }
+
+/* ===== Filtros por categoria ===== */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.filtro {
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 2px solid var(--azul);
+  background: transparent;
+  color: var(--azul);
+  transition: background 0.15s, color 0.15s;
+}
+.filtro:hover { background: var(--sakura); }
+.filtro.ativo { background: var(--azul); color: #fff; }
+.filtro:focus-visible { outline: 3px solid var(--vermelho); outline-offset: 3px; }
+.card[hidden] { display: none; }
+
+/* ===== Chamada do Instagram ===== */
+.insta {
+  background: var(--sakura);
+  text-align: center;
+  padding: 48px 20px;
+  border-top: 1px solid var(--borda);
+}
+.insta h2 { font-size: 1.6rem; color: var(--azul); }
+.insta-arroba {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--azul);
+  margin: 6px 0 4px;
+}
+.insta p { color: var(--texto-suave); }
+.insta .botao { margin-top: 20px; }
